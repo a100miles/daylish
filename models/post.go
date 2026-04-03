@@ -7,6 +7,6 @@ type Post struct {
 	Description string `json:"description"`
 }
 
-var Items = make(map[int]Post)
+var Posts = make(map[int]Post)
 
 var IDCounter = 1

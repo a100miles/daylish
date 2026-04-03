@@ -1,21 +1,14 @@
 package main
 
 import (
+	"daylish/handlers"
 	"fmt"
 	"net/http"
 )
 
-func handler(w http.ResponseWriter, r *http.Request) {
-	fmt.Fprintln(w, "Server is running")
-}
-
-func sum(a int, b int) int {
-	return a + b
-}
-
 func main() {
-	http.HandleFunc("/", handler)
-	err := http.ListenAndServe(":8080", nil)
+	r := handlers.NewRouter()
+	err := http.ListenAndServe(":8080", r)
 	if err != nil {
 		fmt.Println(err)
 	}
